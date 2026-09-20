@@ -3,11 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iFoundParking</title>
+  <title>iFoundParking | Parking Made Simple</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 22px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 34px;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 16px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 55px 20px 35px;
+      background: white;
+    }
+
+    .hero h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .parking-box {
+      max-width: 520px;
+      margin: 30px auto 60px;
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    }
+
+    .parking-box h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 16px;
+      margin-bottom: 7px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      margin-top: 25px;
+      border: none;
+      border-radius: 8px;
+      background: #111;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    .notice {
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>iFoundParking</h1>
-  <p>Easy, Fast, Self-Pay Parking</p>
+
+  <header>
+    <h1>iFoundParking</h1>
+    <p>Parking Made Simple</p>
+  </header>
+
+  <section class="hero">
+    <h2>Park. Pay. You're Done.</h2>
+    <p>
+      Enter your vehicle information, select your parking time,
+      and pay directly from your phone.
+    </p>
+  </section>
+
+  <div class="parking-box">
+
+    <h2>Start Parking</h2>
+
+    <label for="plate">License Plate</label>
+    <input
+      type="text"
+      id="plate"
+      placeholder="Enter license plate"
+    >
+
+    <label for="state">License Plate State</label>
+    <select id="state">
+      <option value="">Select state</option>
+      <option>Indiana</option>
+      <option>Illinois</option>
+      <option>Michigan</option>
+      <option>Ohio</option>
+      <option>Kentucky</option>
+    </select>
+
+    <label for="make">Vehicle Make</label>
+    <input
+      type="text"
+      id="make"
+      placeholder="Example: BMW"
+    >
+
+    <label for="model">Vehicle Model</label>
+    <input
+      type="text"
+      id="model"
+      placeholder="Example: 3 Series"
+    >
+
+    <label for="phone">Mobile Phone Number</label>
+    <input
+      type="tel"
+      id="phone"
+      placeholder="For parking alerts"
+    >
+
+    <label for="parkingTime">Parking Time</label>
+    <select id="parkingTime">
+      <option value="">Select parking option</option>
+      <option>1 Hour</option>
+      <option>2 Hours</option>
+      <option>4 Hours</option>
+      <option>All Day</option>
+      <option>Event Parking</option>
+    </select>
+
+    <button type="button" onclick="startParking()">
+      Continue to Payment
+    </button>
+
+    <p class="notice">
+      Payment processing will be connected in the next step.
+    </p>
+
+  </div>
+
+  <footer>
+    &copy; 2026 iFoundParking. All rights reserved.
+  </footer>
+
+  <script>
+    function startParking() {
+      const plate = document.getElementById("plate").value;
+      const phone = document.getElementById("phone").value;
+      const parkingTime = document.getElementById("parkingTime").value;
+
+      if (!plate || !phone || !parkingTime) {
+        alert("Please complete your vehicle, phone, and parking information.");
+        return;
+      }
+
+      alert("Vehicle information saved. Payment setup is next.");
+    }
+  </script>
+
 </body>
 </html>
