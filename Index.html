@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>iFoundParking | Parking Made Simple</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7f9;
+      color: #111;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 22px 20px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #32d583;
+    }
+
+    header p {
+      margin-top: 6px;
+      color: #ccc;
+      font-size: 15px;
+    }
+
+    .hero {
+      background: white;
+      padding: 42px 20px 30px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #555;
+      font-size: 17px;
+      line-height: 1.5;
+      max-width: 550px;
+      margin: auto;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 25px auto 50px;
+      padding: 0 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 6px 25px rgba(0,0,0,.08);
+    }
+
+    .card h2 {
+      font-size: 25px;
+      margin-bottom: 7px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin: 17px 0 7px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      background: white;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #111;
+    }
+
+    .rates {
+      margin-top: 28px;
+    }
+
+    .rates h3 {
+      margin-bottom: 12px;
+    }
+
+    .rate {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .rate:last-child {
+      border-bottom: none;
+    }
+
+    .price {
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .checkbox {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 22px;
+      color: #555;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .checkbox input {
+      width: auto;
+      margin-top: 2px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 17px;
+      border: 0;
+      border-radius: 11px;
+      background: #111;
+      color: white;
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: .88;
+    }
+
+    .secure {
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      margin-top: 14px;
+    }
+
+    .steps {
+      max-width: 600px;
+      margin: 0 auto 50px;
+      padding: 0 18px;
+    }
+
+    .steps h2 {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .step {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 12px;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">iFound<span>Parking</span></div>
+  <p>Parking Found.</p>
+</header>
+
+<section class="hero">
+  <h1>Park. Pay. You're Done.</h1>
+
+  <p>
+    Enter your vehicle information, choose how long you want to park,
+    and pay securely from your phone.
+  </p>
+</section>
+
+<main class="container">
+
+  <div class="card">
+
+    <h2>Start Parking</h2>
+
+    <p class="subtitle">
+      Enter your vehicle information below.
+    </p>
+
+    <form id="parkingForm">
+
+      <label for="plate">License Plate</label>
+      <input
+        id="plate"
+        name="plate"
+        type="text"
+        placeholder="ABC123"
+        required
+      >
+
+      <label for="state">License Plate State</label>
+
+      <select id="state" name="state" required>
+        <option value="">Select State</option>
+        <option>Indiana</option>
+        <option>Illinois</option>
+        <option>Michigan</option>
+        <option>Ohio</option>
+        <option>Kentucky</option>
+        <option>Wisconsin</option>
+        <option>Other</option>
+      </select>
+
+      <label for="make">Vehicle Make</label>
+
+      <input
+        id="make"
+        name="make"
+        type="text"
+        placeholder="Example: BMW"
+        required
+      >
+
+      <label for="model">Vehicle Model</label>
+
+      <input
+        id="model"
+        name="model"
+        type="text"
+        placeholder="Example: 3 Series"
+        required
+      >
+
+      <label for="color">Vehicle Color</label>
+
+      <input
+        id="color"
+        name="color"
+        type="text"
+        placeholder="Example: Black"
+        required
+      >
+
+      <label for="phone">Mobile Phone Number</label>
+
+      <input
+        id="phone"
+        name="phone"
+        type="tel"
+        placeholder="(317) 555-1234"
+        required
+      >
+
+      <label for="parkingTime">Choose Parking</label>
+
+      <select id="parkingTime" name="parkingTime" required>
+        <option value="">Select Parking Time</option>
+        <option value="1-hour">$5 — Up to 1 Hour</option>
+        <option value="2-hours">$8 — Up to 2 Hours</option>
+        <option value="4-hours">$12 — Up to 4 Hours</option>
+        <option value="all-day">$15 — All Day</option>
+        <option value="event">$20 — Event Parking</option>
+      </select>
+
+      <div class="rates">
+
+        <h3>Parking Rates</h3>
+
+        <div class="rate">
+          <span>Up to 1 Hour</span>
+          <span class="price">$5</span>
+        </div>
+
+        <div class="rate">
+          <span>Up to 2 Hours</span>
+          <span class="price">$8</span>
+        </div>
+
+        <div class="rate">
+          <span>Up to 4 Hours</span>
+          <span class="price">$12</span>
+        </div>
+
+        <div class="rate">
+          <span>All Day</span>
+          <span class="price">$15</span>
+        </div>
+
+        <div class="rate">
+          <span>Event Parking</span>
+          <span class="price">$20</span>
+        </div>
+
+      </div>
+
+      <div class="checkbox">
+
+        <input
+          id="alerts"
+          name="alerts"
+          type="checkbox"
+          checked
+        >
+
+        <label for="alerts" style="margin:0;font-weight:normal;">
+          Send me text alerts before my parking session expires.
+        </label>
+
+      </div>
+
+      <button type="submit">
+        Continue to Payment
+      </button>
+
+      <p class="secure">
+        Secure payment • No app download required
+      </p>
+
+    </form>
+
+  </div>
+
+</main>
+
+<section class="steps">
+
+  <h2>How It Works</h2>
+
+  <div class="step">
+    <strong>1. Scan or Visit</strong>
+    Scan the parking lot QR code or visit iFoundParking from your phone.
+  </div>
+
+  <div class="step">
+    <strong>2. Enter Your Vehicle</strong>
+    Enter your license plate, vehicle information and mobile number.
+  </div>
+
+  <div class="step">
+    <strong>3. Choose Your Parking Time</strong>
+    Select the parking option that works for you.
+  </div>
+
+  <div class="step">
+    <strong>4. Pay</strong>
+    Complete your payment securely from your phone.
+  </div>
+
+  <div class="step">
+    <strong>5. Get Alerts</strong>
+    Receive a text notification before your parking session expires.
+  </div>
+
+</section>
+
+<footer>
+
+  <strong>iFoundParking</strong><br>
+
+  Simple self-service parking.<br><br>
+
+  By parking on the property, you agree to posted parking rules,
+  rates and enforcement policies.
+
+</footer>
+
+
+<script>
+
+  const parkingForm = document.getElementById("parkingForm");
+
+  parkingForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const plate =
+      document.getElementById("plate").value;
+
+    const state =
+      document.getElementById("state").value;
+
+    const make =
+      document.getElementById("make").value;
+
+    const model =
+      document.getElementById("model").value;
+
+    const color =
+      document.getElementById("color").value;
+
+    const phone =
+      document.getElementById("phone").value;
+
+    const parkingTime =
+      document.getElementById("parkingTime").value;
+
+    const alerts =
+      document.getElementById("alerts").checked;
+
+    const parkingSession = {
+      plate,
+      state,
+      make,
+      model,
+      color,
+      phone,
+      parkingTime,
+      alerts
+    };
+
+    localStorage.setItem(
+      "parkingSession",
+      JSON.stringify(parkingSession)
+    );
+
+    alert(
+      "Vehicle information saved. Payment setup is next."
+    );
+
+  });
+
+</script>
+
+</body>
+</html>
